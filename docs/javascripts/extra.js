@@ -85,6 +85,10 @@ function initializeFlashcards() {
   if (!container || typeof FLASHCARDS === 'undefined') {
     return;
   }
+  if (container.dataset.initialized === 'true') {
+    return;
+  }
+  container.dataset.initialized = 'true';
 
   const toolbar = container.previousElementSibling;
   const bookmarks = new Set(JSON.parse(localStorage.getItem('az700-bookmarks') || '[]'));
@@ -219,6 +223,11 @@ function initializeQuizzes() {
   }
 
   quizShells.forEach((shell) => {
+    if (shell.dataset.initialized === 'true') {
+      return;
+    }
+    shell.dataset.initialized = 'true';
+
     const examId = shell.getAttribute('data-exam');
     const exam = EXAMS.find((entry) => entry.exam === examId);
     if (!exam) {
