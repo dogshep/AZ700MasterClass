@@ -7,7 +7,7 @@ repo_name: dogshep/AZ700MasterClass
 edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: site
-use_directory_urls: true
+use_directory_urls: false
 
 nav:
   - Home: index.md
