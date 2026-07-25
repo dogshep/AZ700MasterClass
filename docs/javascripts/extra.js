@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function hydrateInteractiveContent() {
   const searchBox = document.querySelector('.md-search__input');
   if (searchBox) {
     searchBox.setAttribute('placeholder', 'Search lessons, labs, and tips');
@@ -17,9 +17,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   updateProgress();
-  initializeFlashcards();
-  initializeQuizzes();
-});
+
+  if (typeof FLASHCARDS !== 'undefined') {
+    initializeFlashcards();
+  }
+
+  if (typeof EXAMS !== 'undefined') {
+    initializeQuizzes();
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof FLASHCARDS === 'undefined' || typeof EXAMS === 'undefined') {
+      window.setTimeout(hydrateInteractiveContent, 100);
+      return;
+    }
+    hydrateInteractiveContent();
+  });
+} else {
+  hydrateInteractiveContent();
+}
 
 function updateProgress() {
   const visits = Number(localStorage.getItem('az700-visits') || 0) + 1;
