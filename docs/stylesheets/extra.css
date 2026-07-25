@@ -1,0 +1,19 @@
+body { font-family: Inter, Segoe UI, Arial, sans-serif; }
+.progress-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 1rem 0 2rem; }
+.card { background: var(--md-default-bg-color); border: 1px solid var(--md-default-fg-color--lightest); border-radius: 0.8rem; padding: 1rem; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.flashcard-shell, .quiz-shell { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--md-default-fg-color--lightest); border-radius: 0.8rem; }
+.toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.toolbar button, .toolbar select, .quiz-actions button, .quiz-option { padding: 0.45rem 0.75rem; border-radius: 0.55rem; border: 1px solid var(--md-default-fg-color--lightest); }
+.flashcard-card { border: 1px solid var(--md-default-fg-color--lightest); border-radius: 0.8rem; padding: 1rem; min-height: 220px; display: flex; flex-direction: column; justify-content: space-between; cursor: pointer; }
+.flashcard-meta, .quiz-meta { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem; color: var(--md-default-fg-color--light); font-size: 0.9rem; }
+.flashcard-body { text-align: center; display: grid; place-items: center; min-height: 120px; }
+.flashcard-actions, .quiz-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+.quiz-options { display: grid; gap: 0.5rem; margin-top: 1rem; }
+.quiz-option { text-align: left; background: transparent; }
+.quiz-option:hover, .secondary:hover { background: var(--md-accent-fg-color--transparent); }
+.review-item { border-left: 3px solid var(--md-accent-fg-color); padding-left: 0.75rem; margin: 0.75rem 0; }
+.collapsible-note { cursor: pointer; border-left: 3px solid var(--md-accent-fg-color); padding-left: 0.7rem; margin: 0.7rem 0; }
+.collapsible-note.open .note-body { display: block; }
+.note-body { display: none; margin-top: 0.45rem; }
+.empty-state { color: var(--md-default-fg-color--light); font-style: italic; }
+@media print { .md-header, .md-nav, .md-footer, .toolbar, .md-search { display: none !important; } }

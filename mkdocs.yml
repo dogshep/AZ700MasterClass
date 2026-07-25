@@ -1,0 +1,105 @@
+site_name: AZ-700 Masterclass
+site_description: Production-grade Azure AZ-700 study portal built with MkDocs Material.
+site_author: Azure Network Engineering Study Team
+site_url: https://example.github.io/AZ700MasterClass/
+repo_url: https://github.com/example/AZ700MasterClass
+repo_name: example/AZ700MasterClass
+edit_uri: edit/main/docs/
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+nav:
+  - Home: index.md
+  - Study Plan: study-plan.md
+  - Exam Objectives: exam-objectives.md
+  - Exam Cram: exam-cram.md
+  - Lessons:
+      - 01. VNets: 01-vnets.md
+      - 02. Subnets: 02-subnets.md
+      - 03. Routing: 03-routing.md
+      - 04. Route Server: 04-route-server.md
+      - 05. Azure Firewall: 05-firewall.md
+      - 06. NSGs: 06-nsg.md
+      - 07. Private Link: 07-private-link.md
+      - 08. ExpressRoute: 08-expressroute.md
+      - 09. Virtual WAN: 09-virtualwan.md
+      - 10. Load Balancer: 10-load-balancer.md
+      - 11. Front Door: 11-front-door.md
+      - 12. Application Gateway: 12-appgateway.md
+      - 13. Network Watcher: 13-network-watcher.md
+      - 14. Network Manager: 14-network-manager.md
+      - 15. Monitoring: 15-monitoring.md
+      - 16. Security: 16-security.md
+      - 17. Bicep: 17-bicep.md
+      - 18. CLI: 18-cli.md
+      - 19. PowerShell: 19-powershell.md
+      - 20. Troubleshooting: 20-troubleshooting.md
+  - Flashcards: flashcards/index.md
+  - Labs: labs/index.md
+  - Practice Tests: practice-tests/index.md
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font: false
+  icon:
+    logo: material/cloud-outline
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/flashcards-data.js
+  - javascripts/exam-data.js
