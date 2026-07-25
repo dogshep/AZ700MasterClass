@@ -1,9 +1,9 @@
 site_name: AZ-700 Masterclass
 site_description: Production-grade Azure AZ-700 study portal built with MkDocs Material.
 site_author: Azure Network Engineering Study Team
-site_url: https://example.github.io/AZ700MasterClass/
-repo_url: https://github.com/example/AZ700MasterClass
-repo_name: example/AZ700MasterClass
+site_url: https://dogshep.github.io/AZ700MasterClass/
+repo_url: https://github.com/dogshep/AZ700MasterClass
+repo_name: dogshep/AZ700MasterClass
 edit_uri: edit/main/docs/
 docs_dir: docs
 site_dir: site
