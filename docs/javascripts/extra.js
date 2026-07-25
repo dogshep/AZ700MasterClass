@@ -1,4 +1,10 @@
+let interactiveHydrated = false;
+
 function hydrateInteractiveContent() {
+  if (interactiveHydrated && !document.querySelector('.quiz-shell') && !document.getElementById('flashcard-viewer')) {
+    return;
+  }
+
   const searchBox = document.querySelector('.md-search__input');
   if (searchBox) {
     searchBox.setAttribute('placeholder', 'Search lessons, labs, and tips');
@@ -25,18 +31,41 @@ function hydrateInteractiveContent() {
   if (typeof EXAMS !== 'undefined') {
     initializeQuizzes();
   }
+
+  interactiveHydrated = true;
+}
+
+function observeInteractiveContent() {
+  const target = document.querySelector('.md-content') || document.body;
+  if (!target || typeof MutationObserver === 'undefined') {
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    hydrateInteractiveContent();
+  });
+
+  observer.observe(target, {
+    childList: true,
+    subtree: true,
+  });
 }
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof FLASHCARDS === 'undefined' || typeof EXAMS === 'undefined') {
-      window.setTimeout(hydrateInteractiveContent, 100);
+      window.setTimeout(() => {
+        hydrateInteractiveContent();
+        observeInteractiveContent();
+      }, 100);
       return;
     }
     hydrateInteractiveContent();
+    observeInteractiveContent();
   });
 } else {
   hydrateInteractiveContent();
+  observeInteractiveContent();
 }
 
 function updateProgress() {
